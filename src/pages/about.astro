@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Jose Moreu" description="My info">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="800"
+					height="480"
+					src="/assets/my-job.jpg"
+					alt="Jose White at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						Hello, my name is Jose Moreu and I am studying Electronic Engineering in Colombia in my 10th semester. This year, I will have my degree as an Electronic Engineer.
+					</p>
+					<p>
+						I have a wide range of knowledge in various areas of technology, such as web development, Internet of Things, hardware, computer science, network and server administration, use of operating systems, virtual machines, artificial intelligence, design in various fields and, of course, electronics.
+					</p>
+					<p>
+						Currently, I work as a freelance developer and provide advice on electronics and technology solutions of all kinds. I am passionate about keeping up with technological advances and applying them in my projects to provide innovative and efficient solutions. Let's connect and talk about how I can help you with your technology needs.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>Universidad Cooperativa de Colombia</p>
+					<p>Electronic Engineering</p>
+					<p>2018 - 2022</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>Electronic, network admin and hosting, linux distro, IA, microcontrollers, IOT, Nodejs, Express, Mongodb, Git, Docker, Java, Python, C++, JavaScript, Astro, React, Bootstrap, Tailwind, desing electronic components, 3d, Figma, Photoshop</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
